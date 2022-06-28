@@ -1,0 +1,22 @@
+
+        //pricelist
+        Route::get('/procurement/pricelist','ProcurementPriceListController@index')->name('pricelist.index');
+
+        //salarylist
+        Route::get('/dirut/salarylist','SalaryListController@index')->name('salarylist.index');
+
+
+        //warehouse
+        Route::get('/asset/wh','AssetWarehouseController@index')->name('wh.index');
+        Route::post('/asset/wh/store','AssetWarehouseController@store')->name('wh.store');
+        Route::post('/asset/wh/update','AssetWarehouseController@update')->name('wh.update');
+        Route::get('/asset/wh/{id}/delete','AssetWarehouseController@delete')->name('wh.delete');
+//Delivery Order
+        Route::get('/general/do','GeneralDOController@index')->name('do.index');
+        Route::get('/general/do/detail/{id}/{type?}','GeneralDOController@getDO')->name('do.detail');
+        Route::get('/general/do/getWh','GeneralDOController@getWarehouse')->name('do.getWh');
+        Route::post('/general/do/store','GeneralDOController@store')->name('do.add');
+        Route::post('/general/do/edit','GeneralDOController@update')->name('do.edit');
+        Route::post('/general/do/receive','GeneralDOController@updateGR')->name('do.receive');
+        Route::get('/general/do/{id}/delete','GeneralDOController@deleteDO')->name('do.delete');
+        Route::get('/general/dodetail/{id}/delete/{do_id}/{type?}','GeneralDOController@deleteDoDetail')->name('dodetail.delete');

@@ -1,0 +1,4 @@
+ //balance sheet
+        Route::get('/finance/balance-sheet','FinanceBalanceSheetController@index')->name('bs.index');
+        Route::post('/finance/balance-sheet', 'FinanceBalanceSheetController@find')->name('bs.find');
+        Route::post('/finance/balance-sheet/setting', 'FinanceBalanceSheetController@setting')->name('bs.setting');

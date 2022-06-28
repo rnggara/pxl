@@ -1,0 +1,74 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               10.4.14-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             11.0.0.5919
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Dumping structure for table ritz.asset_wh
+CREATE TABLE IF NOT EXISTS `asset_wh` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(400) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `telephone` varchar(50) DEFAULT NULL,
+  `pic` varchar(50) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table ritz.do
+CREATE TABLE IF NOT EXISTS `do` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_id` int(11) DEFAULT NULL,
+  `to_id` int(11) DEFAULT NULL,
+  `deliver_date` datetime DEFAULT NULL,
+  `deliver_by` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `project` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notes` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gr_no` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `approved_by` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `approved_time` date DEFAULT NULL,
+  `division` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `no_do` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `deliver_by` (`deliver_by`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table ritz.do_detail
+CREATE TABLE IF NOT EXISTS `do_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `do_id` int(11) DEFAULT NULL,
+  `item_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `do_id` (`do_id`),
+  KEY `item_id` (`item_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Data exporting was unselected.
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

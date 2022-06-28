@@ -1,0 +1,121 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               10.4.14-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             11.0.0.5919
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Dumping structure for table ritz.rv_absensi
+CREATE TABLE IF NOT EXISTS `rv_absensi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_topic` int(11) DEFAULT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `divisi` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resume` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kehadiran` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `emp_id` int(10) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_id` int(11) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table ritz.rv_book
+CREATE TABLE IF NOT EXISTS `rv_book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ruangan` int(11) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `jam_masuk` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jam_keluar` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_id` int(11) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table ritz.rv_room
+CREATE TABLE IF NOT EXISTS `rv_room` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_ruangan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_id` int(11) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table ritz.rv_time_check
+CREATE TABLE IF NOT EXISTS `rv_time_check` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ruangan` int(11) DEFAULT NULL,
+  `id_book` int(11) DEFAULT NULL,
+  `id_topic` int(11) DEFAULT NULL,
+  `topic_meeting` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `jam` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_id` int(11) DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Data exporting was unselected.
+
+-- Dumping structure for table ritz.rv_topic
+CREATE TABLE IF NOT EXISTS `rv_topic` (
+  `id_topic` int(11) NOT NULL AUTO_INCREMENT,
+  `id_book` int(11) DEFAULT NULL,
+  `topic_meeting` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `projek` char(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pemimpin_meeting` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `emp_id_pemimpin` int(11) DEFAULT NULL,
+  `notulen` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `attendees` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `emp_id_notulen` int(11) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `kehadiran_pemimpin_meeting` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kehadiran_notulen` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resume_pemimpin_meeting` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resume_notulen` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `created_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `company_id` int(11) DEFAULT 1,
+  PRIMARY KEY (`id_topic`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Data exporting was unselected.
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
