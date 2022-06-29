@@ -157,14 +157,14 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6 col-sm-12">
-        <div class="card card-custom gutter-b card-stretch h-350px h-md-700px text-white bgi-no-repeat bgi-position-center" id="menu-img">
+    <div class="col-md-6 col-sm-12 mt-3 min-h-350px h-md-700px">
+        <div class="card card-custom gutter-b card-stretch h-100 text-white bgi-no-repeat bgi-position-center" id="menu-img">
             <div class="card-body">
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-sm-12">
-        <div class="card card-custom gutter-b card-stretch h-350px h-md-700px">
+    <div class="col-md-6 col-sm-12 mt-3 min-h-350px h-md-700px">
+        <div class="card card-custom gutter-b card-stretch h-100">
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
@@ -175,9 +175,7 @@
                             <label>&nbsp;<span id="menu-now"></span></label>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12">
+                    <div class="col-12 mt-3">
                         <div id="menu-view"></div>
                     </div>
                 </div>
@@ -667,6 +665,7 @@
                     $("#menu-view").html(response.view)
                     $("#view-script").html(response.img)
                     console.log($("#view-script").html())
+                    // $("table.display").DataTable()
                 }
             })
         }

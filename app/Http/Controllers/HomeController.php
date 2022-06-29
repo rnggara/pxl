@@ -318,35 +318,120 @@ class HomeController extends Controller
                     $data = [
                         "img" => $img,
                         "view" => $view,
-                        "title" => ucwords($request->v)
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
                     ];
 
                     return Response::json($data);
                 }
 
+                // START::MARKET
                 if($request->v == "market"){
                     $view = htmlspecialchars_decode(view('zmenu._market'));
 
                     $data = [
                         "img" => "",
                         "view" => $view,
-                        "title" => ucwords($request->v)
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
                     ];
 
                     return Response::json($data);
                 }
 
+                if($request->v == "market_sell"){
+                    $xenolot_name = "[Xenolot_name]";
+                    $view = htmlspecialchars_decode(view('zmenu._market_sell', compact("xenolot_name")));
+
+                    $data = [
+                        "img" => "",
+                        "view" => $view,
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
+                    ];
+
+                    return Response::json($data);
+                }
+
+                if($request->v == "market_buy"){
+                    $xenolot_id = Auth::user()->emp_id;
+                    $view = htmlspecialchars_decode(view('zmenu._market_buy', compact("xenolot_id")));
+
+                    $data = [
+                        "img" => "",
+                        "view" => $view,
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
+                    ];
+
+                    return Response::json($data);
+                }
+
+                if($request->v == "market_buy_item"){
+                    $items = [
+                        "A" => 500,
+                        "B" => 250,
+                        "C" => 100,
+                    ];
+                    $view = htmlspecialchars_decode(view('zmenu._market_buy_item', compact("items")));
+
+                    $data = [
+                        "img" => "",
+                        "view" => $view,
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
+                    ];
+
+                    return Response::json($data);
+                }
+                // END::MARKET
+
+                // START::LABORATORY
                 if($request->v == "laboratory"){
                     $view = htmlspecialchars_decode(view('zmenu._laboratory'));
 
                     $data = [
                         "img" => "",
                         "view" => $view,
-                        "title" => ucwords($request->v)
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
                     ];
 
                     return Response::json($data);
                 }
+
+                if($request->v == "laboratory_manage"){
+
+                    $myXenolot = [
+                        "A" => 0,
+                        "B" => 1,
+                        "C" => 0,
+                    ];
+
+                    $view = htmlspecialchars_decode(view('zmenu._laboratory_manage', compact("myXenolot")));
+
+                    $data = [
+                        "img" => "",
+                        "view" => $view,
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
+                    ];
+
+                    return Response::json($data);
+                }
+
+                if($request->v == "laboratory_combine"){
+
+                    $myXenolot = [
+                        "A" => 0,
+                        "B" => 1,
+                        "C" => 0,
+                    ];
+
+                    $view = htmlspecialchars_decode(view('zmenu._laboratory_combine', compact("myXenolot")));
+
+                    $data = [
+                        "img" => "",
+                        "view" => $view,
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
+                    ];
+
+                    return Response::json($data);
+                }
+                // END:::LABORATORY
 
                 if($request->v == "summoning altar"){
                     $view = htmlspecialchars_decode(view('zmenu._altar'));
@@ -354,7 +439,7 @@ class HomeController extends Controller
                     $data = [
                         "img" => "",
                         "view" => $view,
-                        "title" => ucwords($request->v)
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
                     ];
 
                     return Response::json($data);
@@ -366,7 +451,7 @@ class HomeController extends Controller
                     $data = [
                         "img" => "",
                         "view" => $view,
-                        "title" => ucwords($request->v)
+                        "title" => ucwords(str_replace("_", " - ", $request->v))
                     ];
 
                     return Response::json($data);
